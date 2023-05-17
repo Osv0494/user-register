@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script defer src="js/main.js"></script>
+    <title>Formulario de registro</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>REGISTRO DE USUSARIOS</header>
+      <div class="progress-bar">
+        <div class="steps">
+          <p>Datos</p>
+          <div class="num">
+            <span>1</span>
+          </div>
+          <img class="iconRight" src="img/right.png" alt="icon right" />
+        </div>
+        <div class="steps">
+          <p>Nac</p>
+          <div class="num">
+            <span>2</span>
+          </div>
+          <img class="iconRight" src="img/right.png" alt="icon right" />
+        </div>
+        <div class="steps">
+          <p>Contacto</p>
+          <div class="num">
+            <span>3</span>
+          </div>
+          <img class="iconRight" src="img/right.png" alt="icon right" />
+        </div>
+        <div class="steps">
+          <p>Usuario</p>
+          <div class="num">
+            <span>4</span>
+          </div>
+          <img class="iconRight" src="img/right.png" alt="icon right" />
+        </div>
+      </div>
+
+      <div class="form-princ">
+        <form action="#" class="form-all">
+          <!--Card 1-->
+          <div class="card movPag">
+            <div class="title">
+              Información Principal
+            </div>
+            <div class="field">
+              <div class="label">
+                Nombre: <b class="error" id="name-error"></b>
+              </div>
+              <input type="text" id="names" placeholder="ingreza nombre..." />
+            </div>
+            <div class="field">
+              <div class="label">
+                Apellido Paterno:<b class="error" id="lastName1-error"></b>
+              </div>
+              <input
+                type="text"
+                id="apellido1"
+                placeholder="ingreza apellido..."
+              />
+            </div>
+            <div class="field">
+              <div class="label">
+                Apellido Materno:<b class="error" id="lastName2-error"></b>
+              </div>
+              <input
+                type="text"
+                id="apellido2"
+                placeholder="ingreza apellido..."
+              />
+            </div>
+            <div class="field sigPag">
+              <button>Siguiente</button>
+            </div>
+          </div>
+          <!--Card 2-->
+          <div class="card">
+            <div class="title">
+              Información Secundaria
+            </div>
+            <div class="field">
+              <div class="label">
+                Fecha de Nacimiento:<b class="error" id="birthdate-error"></b>
+              </div>
+              <input
+                type="date"
+                id="birthdate"
+                max="2010-12-31"
+              />
+            </div>
+            <div class="field">
+              <div class="label">
+                Sexo:<b class="error" id="sexo-error"></b>
+              </div>
+              <select id="sexo">
+                <option value="-1" disabled  selected>Escoge una opción.</option>
+                <option value="0">Masculino</option>
+                <option value="1">Femenino</option>
+                <option value="2">Sin especificar</option>
+              </select>
+            </div>
+            <div class="field btns">
+              <button class="back-pag1 back">Atras</button>
+              <button class="forward-pag3 forward">Siguiente</button>
+            </div>
+          </div>
+          <!--Card 3-->
+          <div class="card">
+            <div class="title">
+              Información Contácto
+            </div>
+            <div class="field">
+              <div class="label">
+                Correo Electrónico:<b class="error" id="email-error"></b>
+              </div>
+              <input type="text" id="email" placeholder="@email..." />
+            </div>
+            <div class="field">
+              <div class="label">
+                Numero de Telefónico:<b class="error" id="numPhon-error"></b>
+              </div>
+              <input type="text" maxlength="10" id="numPhon" placeholder="0000000000" />
+            </div>
+            <div class="field btns">
+              <button class="back-pag2 back">Atras</button>
+              <button class="forward-pag4 forward">Siguiente</button>
+            </div>
+          </div>
+          <!--Card 4-->
+          <div class="card">
+            <div class="title">
+              Información de inicio seción
+            </div>
+            <div class="field">
+              <div class="label">
+                Nombre de Usuario:<b class="error" id="user-error"></b>
+              </div>
+              <input type="text" id="user" placeholder="ingreza usuario..." />
+            </div>
+            <div class="field">
+              <div class="label">Contraceña:<b class="error" id="password-error"></div>
+              <input
+                type="password"
+                id="password"
+                placeholder="contraceña..."
+              />
+              <span class="eye" onclick="mostrarContra()"
+                ><img
+                  class="eyeHide"
+                  id="showpassword"
+                  src="img/eye.png"
+                  alt="mostrar contraseña" />
+                <img
+                  class="eyeHide"
+                  id="disguisepassword"
+                  src="img/hide.png"
+                  alt="ocultar contaraseña"
+              /></span>
+            </div>
+            <div class="field btns">
+              <button class="back-pag3 back">Atras</button>
+              <button type="submit" class="end">Finalizar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      function mostrarContra() {
+        var x = document.querySelector("#password");
+        var y = document.querySelector("#disguisepassword");
+        var z = document.querySelector("#showpassword");
+        if (x.type === "password") {
+          x.type = "text";
+          y.style.display = "grid";
+          z.style.display = "none";
+        } else {
+          x.type = "password";
+          y.style.display = "none";
+          z.style.display = "grid";
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: darkslateblue;
+}
+.container {
+  width: 350px;
+  background: #fff;
+  border-radius: 7px;
+  text-align: center;
+  padding: 30px 35px 0 35px;
+}
+.container header {
+  font-size: 28px;
+  font-weight: 540;
+  margin: 0 0 30px 0;
+}
+.container .form-princ {
+  overflow: hidden; /*para esconder los demas formularios*/
+  width: 100%;
+}
+.form-princ form {
+  display: flex;
+  width: 400%;
+}
+.form-princ form .card {
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+.form-princ form .card .title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 500;
+}
+.form-princ form .card .field {
+  height: 35px;
+  width: 350px;
+  margin: 40px 0;
+  display: flex;
+  position: relative;
+}
+.form-princ form .card .field .label {
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+  font-size: 14px;
+  font-style: italic;
+  float: left;
+  text-align: left;
+  width: 100%;
+}
+.form-princ form .card .field input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 15px;
+}
+
+.form-princ form .card .field select {
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+.form-princ form .card .field button {
+  width: 100%;
+  height: calc(100%+5px);
+  margin-top: -20px;
+  border: none;
+  background: darkslateblue;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: 0.3s ease;
+}
+.form-princ form .card .field button:hover {
+  background: #db2a31;
+}
+.form-princ form .card .btns {
+  margin-top: 20px !important;
+}
+form .card .btns button.back {
+  margin-right: 3px;
+  font-size: 17px;
+}
+form .card .btns button.forward {
+  margin-left: 3px;
+}
+
+.container .progress-bar {
+  display: flex;
+  margin: 40px 0;
+}
+.container .progress-bar .steps {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.progress-bar .steps p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 8px;
+  transition: 0.2s;
+}
+.progress-bar .steps p.active {
+  color: #db2a31;
+}
+.progress-bar .steps .num {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+  transition: 0.2s;
+}
+.progress-bar .steps .num.active {
+  /*alquitar la class actuve se vera el vorde*/
+  border-color: #db2a31;
+  background: #db2a31;
+}
+.progress-bar .steps .num span {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress-bar .steps .num.active span {
+  display: none;
+}
+.progress-bar .steps .num:before,
+.progress-bar .steps .num:after {
+  position: absolute;
+  content: "";
+  width: 44px;
+  height: 3px;
+  bottom: 11px;
+  right: -53px;
+  background: #000;
+}
+.progress-bar .steps:last-child .num:before,
+.progress-bar .steps:last-child .num:after {
+  display: none;
+}
+.progress-bar .steps .num.active:after {
+  background: #db2a31;
+  animation: mov_Line 0.3s linear forwards;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+@keyframes mov_Line {
+  100% {
+    transform: scaleX(1);
+  }
+}
+.iconRight {
+  display: none;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+}
+.iconRight.active {
+  display: block;
+}
+/*Estilos para mostar la contraseña*/
+.eyeHide {
+  width: 20px;
+  height: 20px;
+}
+.eye {
+  position: absolute;
+  top: 29%;
+  left: 175px;
+  /* right: 7px;*/
+  /*color: darkslateblue;*/
+}
+#disguisepassword {
+  display: none;
+}
+#showpassword,
+#disguisepassword {
+  cursor: pointer;
+}
+/*para mostrar el mensaje error*/
+.error {
+  color: #db2a31;
+  float: right;
+  text-align: right;
+}
+#birthdate,
+#wsexo {
+  cursor: pointer;
+}
+@media (max-width: 375px) {
+  .container {
+    width: 250px;
+    text-align: center;
+    padding: 10px 15px 0 15px;
+  }
+  .container header {
+    font-size: 18px;
+    margin: 0 0 30px 0;
+  }
+
+  .form-princ form .card .title {
+    font-size: 15px;
+  }
+  .form-princ form .card .field {
+    height: 25px;
+    width: 250px;
+    margin: 40px 0;
+  }
+  .form-princ form .card .field .label {
+    position: absolute;
+    top: -30px;
+    font-weight: 500;
+    font-size: 14px;
+    font-style: italic;
+    width: 100%;
+  }
+  .form-princ form .card .field input {
+    font-size: 14px;
+    padding-left: 10px;
+  }
+
+  .form-princ form .card .field select {
+    width: 100%;
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .form-princ form .card .field button {
+    font-size: 15px;
+  }
+
+  form .card .btns button.back {
+    margin-right: 3px;
+    font-size: 15px;
+  }
+
+  .container .progress-bar {
+    margin: 30px 0;
+  }
+  .progress-bar .steps p {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .progress-bar .steps .num {
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    line-height: 25px;
+  }
+  .progress-bar .steps .num span {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .progress-bar .steps .num:before,
+  .progress-bar .steps .num:after {
+    width: 34px;
+    height: 2px;
+    bottom: 11px;
+    right: -36px;
+  }
+
+  .iconRight {
+    display: none;
+    width: 15px;
+    height: 15px;
+  }
+  .eyeHide {
+    width: 15px;
+    height: 15px;
+  }
+  .eye {
+    position: absolute;
+    top: 29%;
+    left: 150px;
+  }
+  .error {
+    font-size: 12px;
+  }
+}
